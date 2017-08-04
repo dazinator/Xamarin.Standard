@@ -8,7 +8,7 @@ install:
 image: Visual Studio 2017 
 assembly_info:
   patch: false
- configuration:
+configuration:
   - Release
 before_build:
 - ps: gitversion /l console /output buildserver
