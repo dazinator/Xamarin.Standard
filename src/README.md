@@ -79,17 +79,18 @@ Just derive from `Xamarin.Standard.Hosting.Android.AndroidStartup`.
 The `AndroidStartup` class is special becuase it has access to the current Android `Context` which is often needed when dealing with services on the Android platform.
 
 You can register pages / view models etc in the container so you can resolve them later. 
-You will probably want to use a proper `mvvm` framework though (INavigationService etc) so you will probably need to integrate these services with an existing container.
-You can do this with containers that are compatible with `Microsoft.Extensions.DependencyInjection` by:
+If you would prefer for the servcies to be added to another / existing container (i.e Unity, StructureMap etc) then you can do that as long as the containers are compatible with `Microsoft.Extensions.DependencyInjection`:
 
 ```
-
+// Pass an existing ServiceCollection() in so you can capture the services added by all startup classes.
 var services = new ServiceCollection();
-var serviceProvider = MainApp.Current.Initialise<IStartup>(services); 
-// the service provider is kind of redundant as we want to use a different container (unity, structuremap etc)
+var serviceProvider = MainApp.Current.Initialise<IStartup>(services); // the service provider is kind of redundant as we want to use a different container to resolve with i.e (unity, structuremap etc)
+
 existingContainer.Populate(services);
 
 ```
+
+In the example above, we allow all our startup classes to populate a `ServiceCollection` which we then populate our existing container of choice with. For example, if you are using `Prism` you will want to do this to populate the container that prism creates for you.
 
 # IHostingEnvironment
 
