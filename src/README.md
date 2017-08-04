@@ -57,19 +57,20 @@ namespace Todo
 
         protected override void OnCreate(Bundle bundle)
         {
-           _serviceProvider = MainApp.Current.Initialise<IStartup>();        
+            _serviceProvider = MainApp.Current.Initialise<IStartup>();        
 
-			base.OnCreate(bundle);
+	    base.OnCreate(bundle);
 
-			// init xamarin forms etc.
-			Forms.Init(this, bundle);
+	    // init xamarin forms etc.
+	    Forms.Init(this, bundle);
 
-			// You can inject into your Xamarin `App` here if you have registered it in configure services.
-			// otherwise just use new App();
-			 var app = ServiceProvider.Value.GetRequiredService<App>();
-             LoadApplication(app);
+	    // You can inject into your Xamarin `App` here if you have registered it in configure services.
+	    // otherwise just use new App();
+	    var app = _serviceProvider.Value.GetRequiredService<App>();
+            LoadApplication(app);
 
-	    }
+	  }
+      }
 
 ```
 
