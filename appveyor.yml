@@ -8,6 +8,8 @@ install:
 image: Visual Studio 2017 
 assembly_info:
   patch: false
+ configuration:
+  - Release
 before_build:
 - ps: gitversion /l console /output buildserver
 - cmd: msbuild %path_to_sln% /t:restore /p:PackageVersion=%GitVersion_NuGetVersion%
