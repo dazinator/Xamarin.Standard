@@ -57,7 +57,7 @@ namespace Todo
 
         protected override void OnCreate(Bundle bundle)
         {
-            _serviceProvider = MainApp.Current.Initialise<IStartup>();        
+            _serviceProvider = MainApp.Current.Initialise<IStartup>();    // your startup classes will be run.    
 
 	    base.OnCreate(bundle);
 
@@ -73,6 +73,10 @@ namespace Todo
       }
 
 ```
+
+You can also create a `startup` class in your platform (`Android`) project if you wals need to register platform specific services.
+Just derive from `Xamarin.Standard.Hosting.Android.AndroidStartup`.
+The `AndroidStartup` class is special becuase it has access to the current Android `Context` which is often needed when dealing with services on the Android platform.
 
 You can register pages / view models etc in the container so you can resolve them later. 
 You will probably want to use a proper `mvvm` framework though (INavigationService etc) so you will probably need to integrate these services with an existing container.
