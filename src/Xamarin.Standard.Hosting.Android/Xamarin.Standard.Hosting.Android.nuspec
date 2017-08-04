@@ -12,12 +12,9 @@
     <description>A framework for creating xamarin applications using netstandard.</description>
     <summary>A framework for creating xamarin applications using netstandard.</summary>
     <copyright>Darrell Tunnell</copyright>
-    <dependencies>
-      <dependency id="Microsoft.AspNetCore.Hosting.Server.Abstractions" version="1.1.2" />
-      <dependency id="Microsoft.AspNetCore.Http.Abstractions" version="1.1.2" />
+    <dependencies>    
       <dependency id="Microsoft.Extensions.DependencyInjection" version="1.1.1" />
-      <dependency id="Microsoft.Extensions.FileProviders.Physical" version="1.1.1" />
-      <dependency id="Microsoft.Extensions.Logging.Abstractions" version="1.1.2" />     
+      <dependency id="Microsoft.Extensions.FileProviders.Physical" version="1.1.1" />    
     </dependencies>
   </metadata>
   <files>
