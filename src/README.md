@@ -10,36 +10,37 @@ namespace Todo
 {
     publi class MyStartup: IStartup
     {
-	    /// <summary>
-        /// Called on application startup, register any services here..
-        /// </summary>
-        /// <param name="provider"></param>
+	   /// <summary>
+           /// Called on application startup, register any services here..
+           /// </summary>
+           /// <param name="provider"></param>
 	   public void RegisterServices(IServiceCollection services)
 	   {
-	       // e.g:
-	       // Register services here.
-           services.AddEntityFrameworkSqlite();
-           services.AddDbContext<TodoItemDatabase>();
+	          // e.g:
+	          // Register services here.
+                  services.AddEntityFrameworkSqlite();
+                  services.AddDbContext<TodoItemDatabase>();
 
 		   // You can inject into your Xamarin `App` class if you register it in configure services. You don't have too!
-		    services.AddTransient<App>();     
+		   services.AddTransient<App>();     
 	   }
 
-        /// <summary>
-        /// Called after the container has been built, and is a good time to perform initial startup actions such as db migrations etc.
-        /// </summary>
-        /// <param name="provider"></param>
-        void OnConfigured(IServiceProvider provider)
-		{
+           /// <summary>
+           /// Called after the container has been built, and is a good time to perform initial startup actions such migrations etc.
+           /// </summary>
+           /// <param name="provider"></param>
+           public void OnConfigured(IServiceProvider provider)
+	   {
 		    using (var scope = provider.CreateScope())
-            {
-                var db = scope.ServiceProvider.GetRequiredService<TodoItemDatabase>();
-                db.Database.EnsureCreated();
-                db.Database.Migrate();
-            }
-		}
+            	    {
+                	var db = scope.ServiceProvider.GetRequiredService<TodoItemDatabase>();
+                	db.Database.EnsureCreated();
+                	db.Database.Migrate();
+                    }
+	   }
 
     }
+}
 
 ```
 
