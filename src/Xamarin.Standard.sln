@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DB8248D0-E9EE-4372-B388-46E5E287E557}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xamarin.Standard.Hosting.Abstractions", "Xamarin.Standard.Hosting.Abstractions\Xamarin.Standard.Hosting.Abstractions.csproj", "{0EFD169E-2C22-4958-9F39-139480423358}"
 EndProject

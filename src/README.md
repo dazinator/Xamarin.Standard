@@ -1,0 +1,1 @@
+nuget pack "Xamarin.Standard.Hosting.Android.nuspec" -Properties "configuration=release"

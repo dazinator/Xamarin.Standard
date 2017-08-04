@@ -1,0 +1,26 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <version>2.4.2</version>
+    <authors>Darrell Tunnell</authors>
+    <owners>Darrell Tunnell</owners>
+    <licenseUrl>https://github.com/dazinator/Xamarin.Standard/licence.md</licenseUrl>
+    <projectUrl>https://github.com/dazinator/Xamarin.Standard</projectUrl>
+    <id>Xamarin.Standard.Hosting.Android</id>
+    <title>Xamarin Standard</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A framework for creating xamarin applications using netstandard.</description>
+    <summary>A framework for creating xamarin applications using netstandard.</summary>
+    <copyright>Darrell Tunnell</copyright>
+    <dependencies>
+      <dependency id="Microsoft.AspNetCore.Hosting.Server.Abstractions" version="1.1.2" />
+      <dependency id="Microsoft.AspNetCore.Http.Abstractions" version="1.1.2" />
+      <dependency id="Microsoft.Extensions.DependencyInjection" version="1.1.1" />
+      <dependency id="Microsoft.Extensions.FileProviders.Physical" version="1.1.1" />
+      <dependency id="Microsoft.Extensions.Logging.Abstractions" version="1.1.2" />     
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin/$configuration$/Xamarin.Standard.Hosting.Android.dll" target="lib\monoandroid71" />
+  </files>
+</package>
