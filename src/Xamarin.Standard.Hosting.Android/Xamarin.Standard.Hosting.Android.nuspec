@@ -7,14 +7,15 @@
     <licenseUrl>https://github.com/dazinator/Xamarin.Standard/licence.md</licenseUrl>
     <projectUrl>https://github.com/dazinator/Xamarin.Standard</projectUrl>
     <id>Xamarin.Standard.Hosting.Android</id>
-    <title>Xamarin Standard</title>
+    <title>Xamarin Standard Hosting Android</title>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A framework for creating xamarin applications using netstandard.</description>
     <summary>A framework for creating xamarin applications using netstandard.</summary>
     <copyright>Darrell Tunnell</copyright>
     <dependencies>    
       <dependency id="Microsoft.Extensions.DependencyInjection" version="1.1.1" />
-      <dependency id="Microsoft.Extensions.FileProviders.Physical" version="1.1.1" />    
+      <dependency id="Microsoft.Extensions.FileProviders.Physical" version="1.1.1" />
+      <dependency id="Xamarin.Standard.Hosting" version="[1.0.0,2.0.0)" />
     </dependencies>
   </metadata>
   <files>
