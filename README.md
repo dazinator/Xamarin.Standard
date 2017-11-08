@@ -4,7 +4,8 @@
 
 ### Setup
 
-1. You should have your various platform specific xamarin projects, with your cross platform login in `netstandard` projects.
+1. You should have your various platform specific / native xamarin projects.
+2. You should have your cross platform logic in `netstandard` projects.
 2. In `netstandard` project, add nuget package: `Xamarin.Standard.Hosting.Abstractions`
 3. In your `Android` project, add nuget package: `Xamarin.Standard.Hosting.Android`
 
