@@ -19,10 +19,13 @@ build:
   verbosity: minimal
 after_build:
 - cmd: gitlink . -u https://github.com/%APPVEYOR_REPO_NAME% -b %APPVEYOR_REPO_BRANCH% -s %APPVEYOR_REPO_COMMIT% -f %path_to_sln%
-- cmd: nuget pack "src/Xamarin.Standard.Hosting.Android/Xamarin.Standard.Hosting.Android.nuspec" -Version=%GitVersion_NuGetVersion% -Properties "configuration=release;version=%GitVersion_NuGetVersion%"
+- cmd: msbuild "src/Xamarin.Standard.FileProviders.PhysicalFileProvider/Xamarin.Standard.FileProviders.PhysicalFileProvider.csproj" /t:Pack /p:PackageVersion=%GitVersion_NuGetVersion% /p:PackageOutputPath="..\..\."
+- cmd: msbuild "src/Xamarin.Standard.Hosting.Abstractions/Xamarin.Standard.Hosting.Abstractions.csproj" /t:Pack /p:PackageVersion=%GitVersion_NuGetVersion% /p:PackageOutputPath="..\..\."
+- cmd: msbuild "src/Xamarin.Standard.Hosting/Xamarin.Standard.Hosting.csproj" /t:Pack /p:PackageVersion=%GitVersion_NuGetVersion% /p:PackageOutputPath="..\..\."
+- cmd: nuget pack "src/Xamarin.Standard.Hosting.Android/Xamarin.Standard.Hosting.Android.nuspec" -Properties "configuration=release;version=%GitVersion_NuGetVersion%"
 # - cmd: msbuild %path_to_sln% /t:Pack /p:PackageVersion=%GitVersion_NuGetVersion%
 artifacts:
-- path: /src/Xamarin.Standard.*/**/Xamarin.Standard.*.nupkg
+- path: /Xamarin.Standard.*.nupkg
 deploy:
   provider: NuGet
   api_key:
