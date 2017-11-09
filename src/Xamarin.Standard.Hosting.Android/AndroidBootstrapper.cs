@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using System.Collections.Generic;
 using System.Reflection;
@@ -9,10 +8,10 @@ namespace Xamarin.Standard.Hosting.Android
 {
     public class AndroidBootstrapper : BootstrapperBase
     {
-        public override IServiceProvider BuildServiceProvider(IServiceCollection services)
-        {
-            return services.BuildServiceProvider();
-        }
+        //public override IServiceProvider BuildServiceProvider(IServiceCollection services)
+        //{
+        //    return services.BuildServiceProvider();
+        //}
 
         public override IEnumerable<Type> GetStartupTypes<TStartup>()
         {

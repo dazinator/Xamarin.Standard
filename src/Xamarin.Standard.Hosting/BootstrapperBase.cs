@@ -6,7 +6,8 @@ namespace Xamarin.Standard.Hosting
 {
     public abstract class BootstrapperBase
     {
-        public IServiceProvider BootstrapFromStartupClasses<TStartup>(IServiceCollection services, IServiceProvider activatorServiceProvider)
+        
+        public IServiceProvider BootstrapFromStartupClasses<TStartup>(IServiceCollection services, IServiceProvider activatorServiceProvider, Func<IServiceCollection, IServiceProvider> buildProvider)
               where TStartup : IStartup
         {          
 
@@ -41,7 +42,7 @@ namespace Xamarin.Standard.Hosting
         public abstract IEnumerable<Type> GetStartupTypes<TStartup>()
             where TStartup : IStartup;
 
-        public abstract IServiceProvider BuildServiceProvider(IServiceCollection services);        
+        //public abstract IServiceProvider BuildServiceProvider(IServiceCollection services);        
 
 
     }

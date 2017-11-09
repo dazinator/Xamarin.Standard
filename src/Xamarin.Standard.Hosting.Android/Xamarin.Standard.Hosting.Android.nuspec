@@ -13,7 +13,7 @@
     <summary>A framework for creating xamarin applications using netstandard.</summary>
     <copyright>Darrell Tunnell</copyright>       
     <dependencies>    
-      <dependency id="Microsoft.Extensions.DependencyInjection" version="[2.0.0,3.0.0)" />
+      <dependency id="Microsoft.Extensions.DependencyInjection" version="[1.1.0,3.0.0)" />
       <dependency id="Xamarin.Standard.FileProviders.PhysicalFileProvider" version="[1.0.0,2.0.0)" />
       <dependency id="Xamarin.Standard.Hosting" version="[1.0.0,2.0.0)" />
     </dependencies>
