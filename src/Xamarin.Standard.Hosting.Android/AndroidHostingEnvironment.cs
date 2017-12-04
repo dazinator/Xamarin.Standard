@@ -17,7 +17,6 @@ namespace Xamarin.Standard.Hosting.Android
             this.ApplicationName = appName;          
         }
 
-
     }
 }
 

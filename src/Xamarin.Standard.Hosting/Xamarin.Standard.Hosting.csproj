@@ -18,5 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Xamarin.Standard.Hosting.Abstractions\Xamarin.Standard.Hosting.Abstractions.csproj" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="1.1.1" />
   </ItemGroup>
 </Project>

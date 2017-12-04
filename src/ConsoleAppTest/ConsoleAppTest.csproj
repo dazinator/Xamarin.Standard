@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Xamarin.Standard.FileProviders.PhysicalFileProvider\Xamarin.Standard.FileProviders.PhysicalFileProvider.csproj" />
+    <ProjectReference Include="..\Xamarin.Standard.Hosting.Abstractions\Xamarin.Standard.Hosting.Abstractions.csproj" />
+    <ProjectReference Include="..\Xamarin.Standard.Hosting.Android\Xamarin.Standard.Hosting.Android.csproj" />
+    <ProjectReference Include="..\Xamarin.Standard.Hosting\Xamarin.Standard.Hosting.csproj" />
+  </ItemGroup>
+
+</Project>

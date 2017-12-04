@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.FileProviders;
+using System;
 
 namespace Xamarin.Standard.Hosting
 {
@@ -23,5 +24,7 @@ namespace Xamarin.Standard.Hosting
         //     Gets or sets an Microsoft.Extensions.FileProviders.IFileProvider pointing at
         //     IHostingEnvironment.ContentRootPath.
         IFileProvider ContentRootFileProvider { get; set; }
+
+        IServiceProvider ServiceProvider { get; set; }
     }
 }

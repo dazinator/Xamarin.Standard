@@ -8,11 +8,6 @@ namespace Xamarin.Standard.Hosting.Android
 {
     public class AndroidBootstrapper : BootstrapperBase
     {
-        //public override IServiceProvider BuildServiceProvider(IServiceCollection services)
-        //{
-        //    return services.BuildServiceProvider();
-        //}
-
         public override IEnumerable<Type> GetStartupTypes<TStartup>()
         {
             var startupType = typeof(TStartup);

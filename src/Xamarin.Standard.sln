@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DB8248D0-E9EE-4372-B388-46E5E287E557}"
 	ProjectSection(SolutionItems) = preProject
@@ -16,6 +16,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xamarin.Standard.FileProviders.PhysicalFileProvider", "Xamarin.Standard.FileProviders.PhysicalFileProvider\Xamarin.Standard.FileProviders.PhysicalFileProvider.csproj", "{A2FF09CB-C9EC-45FE-8795-5D0830DBA495}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Standard.Hosting.Android", "Xamarin.Standard.Hosting.Android\Xamarin.Standard.Hosting.Android.csproj", "{B38E1ECA-DD2A-4FF0-A460-F19FA44F91EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTest", "ConsoleAppTest\ConsoleAppTest.csproj", "{62E6C583-9D40-45EA-85AF-AD7164589E8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B38E1ECA-DD2A-4FF0-A460-F19FA44F91EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B38E1ECA-DD2A-4FF0-A460-F19FA44F91EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B38E1ECA-DD2A-4FF0-A460-F19FA44F91EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62E6C583-9D40-45EA-85AF-AD7164589E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62E6C583-9D40-45EA-85AF-AD7164589E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62E6C583-9D40-45EA-85AF-AD7164589E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62E6C583-9D40-45EA-85AF-AD7164589E8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

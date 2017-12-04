@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.FileProviders;
+using System;
 
 namespace Xamarin.Standard.Hosting
 {
-
     public class HostingEnvironment : IHostingEnvironment
     {
         public HostingEnvironment()
@@ -14,6 +14,8 @@ namespace Xamarin.Standard.Hosting
      
         public string ContentRootPath { get; set; }
         public IFileProvider ContentRootFileProvider { get; set; }
+
+        public IServiceProvider ServiceProvider { get; set; }
 
     }
 }

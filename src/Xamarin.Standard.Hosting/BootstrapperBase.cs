@@ -1,25 +1,47 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Linq;
 
 namespace Xamarin.Standard.Hosting
 {
     public abstract class BootstrapperBase
     {
 
-        public IServiceProvider BootstrapFromStartupClasses<TStartup>(IServiceCollection services, IServiceProvider activatorServiceProvider, Func<IServiceCollection, IServiceProvider> buildProvider)
+        protected virtual bool IsMatchForEnvironment(Type startupType, string name)
+        {
+            var atts = startupType.GetTypeInfo().GetCustomAttributes<EnvironmentNameAttribute>();
+            if (!atts.Any())
+            {
+                return true;
+            }
+
+            foreach (var att in atts)
+            {
+                if (att.Name == name)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+
+        }
+
+        public IServiceProvider BootstrapFromStartupClasses<TStartup>(IServiceCollection services, IServiceProvider activator, Func<IServiceCollection, IServiceProvider> buildProvider, string environmentName)
               where TStartup : IStartup
         {
 
-            var candidates = this.GetStartupTypes<TStartup>();
+            var candidates = this.GetStartupTypes<TStartup>().Where(t => IsMatchForEnvironment(t, environmentName));
 
             var startupItems = new List<TStartup>();
             foreach (var item in candidates)
             {
                 TStartup startupInstance;
-                if (activatorServiceProvider != null)
+                if (activator != null)
                 {
-                    startupInstance = (TStartup)ActivatorUtilities.CreateInstance(activatorServiceProvider, item);
+                    startupInstance = (TStartup)ActivatorUtilities.CreateInstance(activator, item);
                 }
                 else
                 {
@@ -42,8 +64,6 @@ namespace Xamarin.Standard.Hosting
         public abstract IEnumerable<Type> GetStartupTypes<TStartup>()
             where TStartup : IStartup;
 
-    }
+    }  
 
 }
-
-
