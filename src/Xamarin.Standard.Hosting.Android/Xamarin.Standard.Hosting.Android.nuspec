@@ -14,6 +14,7 @@
     <copyright>Darrell Tunnell</copyright>       
     <dependencies>    
       <dependency id="Xamarin.Standard.Hosting" version="$version$" />
+      <dependency id="Xamarin.Standard.FileProviders.PhysicalFileProvider" version="$version$" />
     </dependencies>
   </metadata>
   <!--<files>
