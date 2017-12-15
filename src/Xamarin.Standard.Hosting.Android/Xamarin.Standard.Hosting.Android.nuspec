@@ -12,13 +12,13 @@
     <description>A framework for creating xamarin applications using netstandard.</description>
     <summary>A framework for creating xamarin applications using netstandard.</summary>
     <copyright>Darrell Tunnell</copyright>       
-    <dependencies>    
+    <!--<dependencies>    
       <dependency id="Microsoft.Extensions.DependencyInjection" version="[1.1.0,3.0.0)" />
       <dependency id="Xamarin.Standard.FileProviders.PhysicalFileProvider" version="[1.0.0,2.0.0)" />
       <dependency id="Xamarin.Standard.Hosting" version="[1.0.0,2.0.0)" />
-    </dependencies>
+    </dependencies>-->
   </metadata>
-  <files>
+  <!--<files>
     <file src="bin/$configuration$/Xamarin.Standard.Hosting.Android.dll" target="lib\monoandroid71" />
-  </files>
+  </files>-->
 </package>

@@ -22,7 +22,7 @@ after_build:
 - cmd: msbuild "src/Xamarin.Standard.FileProviders.PhysicalFileProvider/Xamarin.Standard.FileProviders.PhysicalFileProvider.csproj" /t:Pack /p:PackageVersion=%GitVersion_NuGetVersion% /p:PackageOutputPath="..\..\."
 - cmd: msbuild "src/Xamarin.Standard.Hosting.Abstractions/Xamarin.Standard.Hosting.Abstractions.csproj" /t:Pack /p:PackageVersion=%GitVersion_NuGetVersion% /p:PackageOutputPath="..\..\."
 - cmd: msbuild "src/Xamarin.Standard.Hosting/Xamarin.Standard.Hosting.csproj" /t:Pack /p:PackageVersion=%GitVersion_NuGetVersion% /p:PackageOutputPath="..\..\."
-- cmd: nuget pack "src/Xamarin.Standard.Hosting.Android/Xamarin.Standard.Hosting.Android.nuspec" -Properties "configuration=release;version=%GitVersion_NuGetVersion%"
+- cmd: nuget pack "src/Xamarin.Standard.Hosting.Android/Xamarin.Standard.Hosting.Android.csproj" -Properties "configuration=release;version=%GitVersion_NuGetVersion%"
 # - cmd: msbuild %path_to_sln% /t:Pack /p:PackageVersion=%GitVersion_NuGetVersion%
 artifacts:
 - path: /Xamarin.Standard.*.nupkg
