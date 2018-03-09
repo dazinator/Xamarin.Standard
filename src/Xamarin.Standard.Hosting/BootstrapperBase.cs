@@ -33,7 +33,7 @@ namespace Xamarin.Standard.Hosting
               where TStartup : IStartup
         {
 
-            var candidates = GetStartupTypes<TStartup>().Where(t => IsMatchForEnvironment(t, environmentName));
+            var candidates = GetStartupTypes<TStartup>(assemblyFilter).Where(t => IsMatchForEnvironment(t, environmentName));
 
             var startupItems = new List<TStartup>();
             foreach (var item in candidates)

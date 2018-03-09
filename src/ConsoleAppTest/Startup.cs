@@ -17,6 +17,7 @@ namespace ConsoleAppTest
         public void RegisterServices(IServiceCollection services)
         {
             Fired = true;
+            services.AddSingleton(this);
             Console.WriteLine("Registering Services!");
 
         }

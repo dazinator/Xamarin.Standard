@@ -9,7 +9,7 @@ namespace ConsoleAppTest
     {
         static void Main(string[] args)
         {
-            var services = new ServiceCollection();                      
+            var services = new ServiceCollection();
 
             services.AddDefaultHostingEnvironment("ConsoleApp", Environment.CurrentDirectory);
 
@@ -21,7 +21,7 @@ namespace ConsoleAppTest
                 envManager.ConfigureEnvironment("Dev", (envServices) =>
                 {
                     // add dev environment specific services     
-                    
+
                     // populate services from startup classes..
                     envServices.Initialise<IStartup>(startupTypes, (sp) => sp.BuildServiceProvider(), envManager.HostProvider);
                 });
@@ -36,17 +36,28 @@ namespace ConsoleAppTest
 
             var hostServiceProvider = services.BuildServiceProvider();
 
-            var devEnvironment = hostServiceProvider.GetEnvironment("Dev");          
+            var devEnvironment = hostServiceProvider.GetEnvironment("Dev");
             if (devEnvironment == null)
             {
                 throw new Exception();
             }
 
-            var testEnvironment = hostServiceProvider.GetEnvironment("Test");           
+            var registered = devEnvironment.ServiceProvider.GetRequiredService<Startup>();
+            var notRegistered = devEnvironment.ServiceProvider.GetService<AnotherStartup>();
+            if (notRegistered != null)
+            {
+                throw new Exception("Should only be registered in test environment as it has EnvironmentName attribute.");
+            }
+
+            var testEnvironment = hostServiceProvider.GetEnvironment("Test");
             if (testEnvironment == null)
             {
                 throw new Exception();
             }
+
+            registered = testEnvironment.ServiceProvider.GetRequiredService<Startup>();
+            var alsoRegistered = testEnvironment.ServiceProvider.GetRequiredService<AnotherStartup>();
+
 
         }
     }
