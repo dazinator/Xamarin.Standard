@@ -8,13 +8,19 @@ namespace Xamarin.Standard.Hosting.Android
 {
     public class AndroidBootstrapper : BootstrapperBase
     {
-        public override IEnumerable<Type> GetStartupTypes<TStartup>()
+        public override IEnumerable<Type> GetStartupTypes<TStartup>(Predicate<AssemblyName> assemblyFilter = null)
         {
             var startupType = typeof(TStartup);
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+
+            if (assemblyFilter != null)
+            {
+                assemblies = assemblies.Where((a) => assemblyFilter(a.GetName())).ToArray();
+            }
+
             var candidates = new List<Type>();
             foreach (var item in assemblies)
-            {
+            {              
                 try
                 {
                     var startupTypes = item.GetTypes().Where(p => startupType.IsAssignableFrom(p) && p.IsClass && !p.IsAbstract && p != startupType);

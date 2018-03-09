@@ -29,11 +29,11 @@ namespace Xamarin.Standard.Hosting
 
         }
 
-        public IServiceProvider BootstrapFromStartupClasses<TStartup>(IServiceCollection services, IServiceProvider activator, Func<IServiceCollection, IServiceProvider> buildProvider, string environmentName)
+        public IServiceProvider BootstrapFromStartupClasses<TStartup>(IServiceCollection services, IServiceProvider activator, Func<IServiceCollection, IServiceProvider> buildProvider, string environmentName, Predicate<AssemblyName> assemblyFilter = null)
               where TStartup : IStartup
         {
 
-            var candidates = this.GetStartupTypes<TStartup>().Where(t => IsMatchForEnvironment(t, environmentName));
+            var candidates = GetStartupTypes<TStartup>().Where(t => IsMatchForEnvironment(t, environmentName));
 
             var startupItems = new List<TStartup>();
             foreach (var item in candidates)
@@ -61,7 +61,7 @@ namespace Xamarin.Standard.Hosting
             return serviceProvider;
         }
 
-        public abstract IEnumerable<Type> GetStartupTypes<TStartup>()
+        public abstract IEnumerable<Type> GetStartupTypes<TStartup>(Predicate<AssemblyName> assemblyFilter = null)
             where TStartup : IStartup;
 
     }  
